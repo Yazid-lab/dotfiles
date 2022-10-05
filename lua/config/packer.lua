@@ -47,7 +47,6 @@ return require("packer").startup(function()
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
   use("tpope/vim-rhubarb") --Fugitive-companion to interact with github
   use("numToStr/Comment.nvim") -- plugin that managers commenting code Ex: "gc" to comment visual regions/lines
-  use("lukas-reineke/indent-blankline.nvim") -- add indentation side bar for functions and shit
   use({ "williamboman/mason.nvim" }) -- manage external editor tooling such as LSP servers, DAP servers, linters, and formatters through a single interface.
   use("williamboman/mason-lspconfig.nvim")
   use("neovim/nvim-lspconfig")
