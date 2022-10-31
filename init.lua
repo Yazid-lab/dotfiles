@@ -10,6 +10,10 @@ map("n", "<leader>j", ":Ex<CR>", opts)
 map("n", "<leader>so", ":so %<cr>", opts)
 map("n", "<C-s>", ":w<cr>", opts)
 map("i", "<C-s>", "<C-c>:w<cr>a", opts)
+map("n","<C-j>","<C-w>j",opts)
+map("n","<C-k>","<C-w>k",opts)
+map("n","<C-l>","<C-w>l",opts)
+map("n","<C-h>","<C-w>h",opts)
 --general configs
 local set = vim.opt
 vim.wo.wrap = false
