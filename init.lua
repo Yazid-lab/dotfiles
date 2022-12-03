@@ -5,6 +5,8 @@ local opts = { noremap = true, silent = true }
 --setting the leader character
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+map("n","<C-d>","<C-d>zz",opts)
+map("n","<C-u>","<C-u>zz",opts)
 map("n", "<Space>", "<NOP>", opts)
 map("n", "<leader>j", ":Ex<CR>", opts)
 map("n", "<leader>so", ":so %<cr>", opts)
