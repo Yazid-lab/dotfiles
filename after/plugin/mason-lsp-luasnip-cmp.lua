@@ -74,8 +74,7 @@ cmp.setup({
 --LSP CONFIG WITH MASON
 local lspconfig = require("lspconfig")
 --ADD capabilities capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	--LSP Keymaps
@@ -88,7 +87,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, bufopts)
     vim.keymap.set("n","<leader>ca",vim.lsp.buf.code_action,bufopts)
     vim.keymap.set("n","<leader>e",vim.diagnostic.open_float,bufopts)
-    vim.keymap.set("n","<leader>fm",vim.lsp.buf.formatting_seq_sync,bufopts)
+    vim.keymap.set("n","<leader>fm",vim.lsp.buf.format,bufopts)
 end
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
