@@ -56,16 +56,16 @@ cmp.setup({
 		{ name = "nvim_lua" },
 	},
 	formatting = {
-		format= lspkind.cmp_format{
+		format = lspkind.cmp_format({
 			with_text = true,
-			menu={
+			menu = {
 				buffer = "[buff]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[api]",
 				path = "[path]",
 				luasnip = "[snip]",
-			}
-		}
+			},
+		}),
 	},
 	-- experimental = {
 	-- 	native_menu = false,
@@ -85,9 +85,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts)
 	vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts)
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, bufopts)
-    vim.keymap.set("n","<leader>ca",vim.lsp.buf.code_action,bufopts)
-    vim.keymap.set("n","<leader>e",vim.diagnostic.open_float,bufopts)
-    vim.keymap.set("n","<leader>fm",vim.lsp.buf.format,bufopts)
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, bufopts)
+	vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, bufopts)
 end
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
@@ -126,3 +126,8 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 })
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
