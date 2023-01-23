@@ -76,18 +76,22 @@ local lspconfig = require("lspconfig")
 --ADD capabilities capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_attach = function(client, bufnr)
+	local function map(mode, l, r, desc)
+		vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = bufnr, desc = desc })
+	end
+
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	--LSP Keymaps
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts)
-	vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts)
-	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, bufopts)
-	vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, bufopts)
+	map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+	map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+	map("n", "K", vim.lsp.buf.hover, "Show help menu hover")
+	map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+	map("n", "<leader>dk", vim.diagnostic.goto_prev, "diagnostic go to previous")
+	map("n", "<leader>dj", vim.diagnostic.goto_next, "diagnostic go to next")
+	map("n", "<leader>r", vim.lsp.buf.rename, "diagnostic rename")
+	map("n", "<leader>ca", vim.lsp.buf.code_action, "Diagnostic code action")
+	map("n", "<leader>e", vim.diagnostic.open_float, "Diagnostic open float")
+	map("n", "<leader>fm", vim.lsp.buf.format, "Diagnostic format")
 end
 require("mason-lspconfig").setup_handlers({
 	-- The first entry (without a key) will be the default handler
