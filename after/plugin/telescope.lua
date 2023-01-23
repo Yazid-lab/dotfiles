@@ -12,5 +12,3 @@ map("n","<leader>fg", require('telescope.builtin').live_grep, {desc = 'telescope
 map("n","<leader>mm", require('telescope.builtin').man_pages, {desc = 'telescope man pages'})
 map("n","<leader>gs", require('telescope.builtin').git_status, {desc = 'telescope git status'})
 map("n","<leader>bf", require('telescope.builtin').current_buffer_fuzzy_find, {desc = 'telescope fuzzy find over the current buffer'})
-
-
