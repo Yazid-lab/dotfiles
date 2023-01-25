@@ -51,7 +51,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = {
-		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp", max_item_count = 15 },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 	},
@@ -67,6 +67,7 @@ cmp.setup({
 			},
 		}),
 	},
+	{ max_item_count = 10 },
 	-- experimental = {
 	-- 	native_menu = false,
 	-- }
