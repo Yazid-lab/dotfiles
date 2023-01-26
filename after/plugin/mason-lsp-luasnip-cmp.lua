@@ -51,8 +51,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = {
-		{ name = "nvim_lsp", max_item_count = 15 },
-		{ name = "luasnip" },
+		{ name = "nvim_lsp", max_item_count = 5 },
 		{ name = "nvim_lua" },
 	},
 	formatting = {
@@ -67,10 +66,24 @@ cmp.setup({
 			},
 		}),
 	},
-	{ max_item_count = 10 },
 	-- experimental = {
 	-- 	native_menu = false,
 	-- }
+})
+
+cmp.setup.filetype("javascript", {
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp", max_item_count = 10 },
+		{ name = "luasnip", max_item_count = 5 },
+		{ name = "buffer" },
+	}),
+})
+cmp.setup.filetype("javascriptreact", {
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp", max_item_count = 10 },
+		{ name = "luasnip", max_item_count = 5 },
+		{ name = "buffer" },
+	}),
 })
 --LSP CONFIG WITH MASON
 local lspconfig = require("lspconfig")
@@ -81,7 +94,6 @@ local on_attach = function(client, bufnr)
 		vim.keymap.set(mode, l, r, { noremap = true, silent = true, buffer = bufnr, desc = desc })
 	end
 
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	--LSP Keymaps
 	map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 	map("n", "gd", vim.lsp.buf.definition, "Go to definition")
