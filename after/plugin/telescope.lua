@@ -7,7 +7,6 @@ end
 
 --telescope keybindings
 map("n", "<leader>ff" , require('telescope.builtin').find_files, 'Telescope files')
-map("n", "<leader>hh", require('telescope.builtin').help_tags,'Telescope help')
 map("n", "<leader>km",  require('telescope.builtin').keymaps, 'Telescope keymaps')
 map("n", "<leader>gc", require('telescope.builtin').git_commits, 'Telescope git commits')
 map("n","<leader>fg", require('telescope.builtin').live_grep, 'Telescope this word')
