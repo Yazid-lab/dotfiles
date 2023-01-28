@@ -18,6 +18,9 @@ map("n", "<C-j>", "<C-w>j", "Move down pane")
 map("n", "<C-k>", "<C-w>k",  "Move up pane")
 map("n", "<C-l>", "<C-w>l", "Move left pane")
 map("n", "<C-h>", "<C-w>h", "Move right pane")
+map("n","<leader>v",":vsp<CR>","Split vertically")
+map("n","<leader>h",":sp<CR>","Split horizontally")
+map('n','<leader>x',':q<CR>','close buffer')
 --general configs
 local set = vim.opt
 vim.wo.wrap = false
