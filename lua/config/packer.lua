@@ -1,7 +1,6 @@
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") --speed up loading
 	use("lewis6991/impatient.nvim") -- speed up startup
-	use("nathom/filetype.nvim")
 	--colors
 	--tokiooooooooooooooo
 	use("folke/tokyonight.nvim")

@@ -26,6 +26,7 @@ local set = vim.opt
 vim.wo.wrap = false
 set.nu = true
 set.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
